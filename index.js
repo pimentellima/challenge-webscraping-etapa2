@@ -72,7 +72,7 @@ function transformGraphQLResult(result) {
 
 async function fetchFromApi() {
   const url =
-    "https://mercado.carrefour.com.br/api/graphql?operationName=ProductsQuery&variables=%7B%22isPharmacy%22%3Afalse%2C%22first%22%3A20%2C%22after%22%3A%2220%22%2C%22sort%22%3A%22score_desc%22%2C%22term%22%3A%22%22%2C%22selectedFacets%22%3A%5B%7B%22key%22%3A%22category-1%22%2C%22value%22%3A%22bebidas%22%7D%2C%7B%22key%22%3A%22category-1%22%2C%22value%22%3A%224599%22%7D%2C%7B%22key%22%3A%22channel%22%2C%22value%22%3A%22%7B%5C%22salesChannel%5C%22%3A2%2C%5C%22regionId%5C%22%3A%5C%22%5C%22%7D%22%7D%2C%7B%22key%22%3A%22locale%22%2C%22value%22%3A%22pt-BR%22%7D%2C%7B%22key%22%3A%22region-id%22%2C%22value%22%3A%22%22%7D%5D%7D";
+    "https://mercado.carrefour.com.br/api/graphql?operationName=ProductsQuery&variables=%7B%22isPharmacy%22%3Afalse%2C%22first%22%3A20%2C%22after%22%3A%2220%22%2C%22sort%22%3A%22score_desc%22%2C%22term%22%3A%22%22%2C%22selectedFacets%22%3A%5B%7B%22key%22%3A%22category-1%22%2C%22value%22%3A%22bebidas%22%7D%2C%7B%22key%22%3A%22category-1%22%2C%22value%22%3A%224599%22%7D%2C%7B%22key%22%3A%22channel%22%2C%22value%22%3A%22%7B%5C%22salesChannel%5C%22%3A2%2C%5C%22regionId%5C%22%3A%5C%22v2.16805FBD22EC494F5D2BD799FE9F1FB7%5C%22%7D%22%7D%2C%7B%22key%22%3A%22locale%22%2C%22value%22%3A%22pt-BR%22%7D%2C%7B%22key%22%3A%22region-id%22%2C%22value%22%3A%22v2.16805FBD22EC494F5D2BD799FE9F1FB7%22%7D%5D%7D";
 
   const response = await fetch(url);
   const data = await response.json();
