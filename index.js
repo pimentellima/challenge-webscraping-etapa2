@@ -20,7 +20,6 @@ async function parsePageHtml() {
   });
 
   return await page.evaluate(() => {
-    const cookie = document.cookie;
     const listItems = Array.from(
       document
         .querySelector('[data-fs-product-listing-results="true"]')
@@ -49,24 +48,24 @@ async function parsePageHtml() {
       };
     });
 
-    return { cookie, count, products };
+    return { count, products };
   });
 }
 
 function transformGraphQLResult(result) {
-  const products = result.data.search.products.edges.map(edge => {
+  const products = result.data.search.products.edges.map((edge) => {
     const node = edge.node;
     return {
       name: node.name,
-      images: node.image.map(img => img.url),
+      images: node.image.map((img) => img.url),
       lowPrice: node.offers.lowPrice.toFixed(2),
-      url: `https://www.carrefour.com.br/produto/${node.slug}/${node.id}`
+      url: `https://www.carrefour.com.br/produto/${node.slug}/${node.id}`,
     };
   });
 
   return {
     count: result.data.search.products.pageInfo.totalCount,
-    products
+    products,
   };
 }
 
